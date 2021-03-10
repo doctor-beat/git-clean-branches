@@ -7,7 +7,7 @@ A branch is obsolete if:
 2. it is merged and nothing commited since
 3. it it not updated in the last 100 days
 
-To dry run:
+To dry run, change-dir to your repo-folder and:
 
 - ./git-clean-branches.sh
   
