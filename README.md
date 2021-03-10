@@ -9,10 +9,10 @@ A branch is obsolete if:
 
 To dry run:
 
-  ./git-clean-branches.sh
+- ./git-clean-branches.sh
   
 To actually do the delete:
 
-  ./git-clean-branches.sh CONFIRM
+- ./git-clean-branches.sh CONFIRM
   
 Take care!
