@@ -1,4 +1,4 @@
-DAYS=90; TODAY=`date +"%s"`;
+DAYS=1825; TODAY=`date +"%s"`;
 [ "$1"  == 'CONFIRM' ] && DELETE=1
 if [ ${DELETE} ] ; then
     echo "********************************************"
@@ -16,6 +16,6 @@ if [ -z "$DELETE" ]
     then  
         cat
     else  
-        sed s/origin\\/// | awk '{ print "git push --delete origin " $3 }' #echo "git push --delete origin $1" 
+        sed s/origin\\/// | awk '{ print $3 }' | xargs -n 1 git push --delete origin  
 fi
 
