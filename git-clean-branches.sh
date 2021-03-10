@@ -1,4 +1,4 @@
-DAYS=1825; TODAY=`date +"%s"`;
+DAYS=100; TODAY=`date +"%s"`;
 [ "$1"  == 'CONFIRM' ] && DELETE=1
 if [ ${DELETE} ] ; then
     echo "********************************************"
@@ -8,8 +8,7 @@ if [ ${DELETE} ] ; then
     [[ ! $REPLY =~ ^[Yy]$ ]] && echo "Exiting..." && exit 1
 fi
 
-
-for branch in `git branch -r --merged | grep -v HEAD | egrep -v "(^\*|master|dev)"` ; do 
+for branch in `git branch -r --merged | grep -v HEAD | egrep -v "(^\*|master|dev|main)"` ; do 
     echo -e `git show --format="%cI %ct ${branch} \\t\\t %an" $branch | head -n 1` ;    
 done | awk -v today=${TODAY} -v days=${DAYS} '$2 < today - days*24*60*60' | sort -r |  
 if [ -z "$DELETE" ] 
